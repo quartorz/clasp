@@ -82,7 +82,7 @@ export const getAllProjectFiles = async (rootDir: string = path.join('.', '/')):
         // Replace OS specific path separator to common '/' char for console output
         const name = filename.replace(/\\/g, '/');
 
-        return {source: '', isIgnored: isIgnored(name), name, type: ''};
+        return {source: '', isIgnored: isIgnored(name), name, type: getApiFileType(name)};
       }
     );
     files.sort((a, b) => a.name.localeCompare(b.name));
